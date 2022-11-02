@@ -1,0 +1,61 @@
+# Project: Free Geometry Tool
+# Makefile created by Dev-C++ 5.11
+
+CPP      = g++.exe
+CC       = gcc.exe
+WINDRES  = windres.exe
+OBJ      = ../compile/main.o ../compile/exceptio.o ../compile/genlib.o ../compile/graphics.o ../compile/linkedlist.o ../compile/random.o ../compile/simpio.o ../compile/strlib.o ../compile/imgui.o ../compile/geo_funcs01.o ../compile/geo_funcs03.o ../compile/geo_funcs02.o
+LINKOBJ  = ../compile/main.o ../compile/exceptio.o ../compile/genlib.o ../compile/graphics.o ../compile/linkedlist.o ../compile/random.o ../compile/simpio.o ../compile/strlib.o ../compile/imgui.o ../compile/geo_funcs01.o ../compile/geo_funcs03.o ../compile/geo_funcs02.o
+LIBS     = -L"C:/Program Files/Dev-Cpp/MinGW64/lib" -L"C:/Program Files/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib" -static-libgcc -mwindows -lwinmm -mwindows
+INCS     = -I"C:/Program Files/Dev-Cpp/MinGW64/include" -I"C:/Program Files/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include" -I"../simpleGUI" -I"../libgraphics" -I"../codes"
+CXXINCS  = -I"C:/Program Files/Dev-Cpp/MinGW64/include" -I"C:/Program Files/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include" -I"C:/Program Files/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include/c++" -I"../simpleGUI" -I"../libgraphics" -I"../codes"
+BIN      = "Free Geometry Tool.exe"
+CXXFLAGS = $(CXXINCS) 
+CFLAGS   = $(INCS) 
+RM       = rm.exe -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CC) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+../compile/main.o: ../codes/main.c
+	$(CC) -c ../codes/main.c -o ../compile/main.o $(CFLAGS)
+
+../compile/exceptio.o: ../libgraphics/exceptio.c
+	$(CC) -c ../libgraphics/exceptio.c -o ../compile/exceptio.o $(CFLAGS)
+
+../compile/genlib.o: ../libgraphics/genlib.c
+	$(CC) -c ../libgraphics/genlib.c -o ../compile/genlib.o $(CFLAGS)
+
+../compile/graphics.o: ../libgraphics/graphics.c
+	$(CC) -c ../libgraphics/graphics.c -o ../compile/graphics.o $(CFLAGS)
+
+../compile/linkedlist.o: ../libgraphics/linkedlist.c
+	$(CC) -c ../libgraphics/linkedlist.c -o ../compile/linkedlist.o $(CFLAGS)
+
+../compile/random.o: ../libgraphics/random.c
+	$(CC) -c ../libgraphics/random.c -o ../compile/random.o $(CFLAGS)
+
+../compile/simpio.o: ../libgraphics/simpio.c
+	$(CC) -c ../libgraphics/simpio.c -o ../compile/simpio.o $(CFLAGS)
+
+../compile/strlib.o: ../libgraphics/strlib.c
+	$(CC) -c ../libgraphics/strlib.c -o ../compile/strlib.o $(CFLAGS)
+
+../compile/imgui.o: ../simpleGUI/imgui.c
+	$(CC) -c ../simpleGUI/imgui.c -o ../compile/imgui.o $(CFLAGS)
+
+../compile/geo_funcs01.o: ../codes/geo_funcs01.c
+	$(CC) -c ../codes/geo_funcs01.c -o ../compile/geo_funcs01.o $(CFLAGS)
+
+../compile/geo_funcs03.o: ../codes/geo_funcs03.c
+	$(CC) -c ../codes/geo_funcs03.c -o ../compile/geo_funcs03.o $(CFLAGS)
+
+../compile/geo_funcs02.o: ../codes/geo_funcs02.c
+	$(CC) -c ../codes/geo_funcs02.c -o ../compile/geo_funcs02.o $(CFLAGS)
